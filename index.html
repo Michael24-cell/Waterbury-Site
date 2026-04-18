@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterbury — Operational Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-linen: #FAF9F6;
+            --text-main: #1C1C19;
+            --linear-dark: #0B0B0C;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-linen); 
+            color: var(--text-main);
+            line-height: 1.35;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .display-serif { 
+            font-family: 'Instrument Serif', serif; 
+            letter-spacing: -0.04em; /* Tightened tracking for premium feel */
+            line-height: 0.85; /* Tightened line-height to fix "tall" text */
+        }
+        
+        /* Glassmorphism */
+        .glass-nav { 
+            background: rgba(250, 249, 246, 0.85); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px); 
+            border-bottom: 1px solid rgba(0,0,0,0.03); 
+        }
+
+        .shadow-editorial { box-shadow: 0 24px 48px -12px rgba(16, 23, 41, 0.08); }
+        .shadow-subtle { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03); }
+        .border-delicate { border: 1px solid rgba(28, 28, 25, 0.06); }
+        
+        .transition-flow { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        .ui-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(28, 28, 25, 0.4);
+        }
+
+        /* FAQ Accordion Reset */
+        details summary::-webkit-details-marker { display: none; }
+        details[open] summary span { transform: rotate(45deg); }
+
+        .mobile-sticky-bar {
+            box-shadow: 0 -8px 24px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="selection:bg-[#101729] selection:text-[#FAF9F6]">
+
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+            <div class="text-2xl display-serif font-bold tracking-tight text-[#101729]">Waterbury</div>
+            <div class="hidden md:flex space-x-10 text-[11px] font-semibold uppercase tracking-widest text-[#1C1C19]/60">
+                <a href="#expertise" class="hover:text-black transition-flow">Expertise</a>
+                <a href="#process" class="hover:text-black transition-flow">Process</a>
+                <a href="#faq" class="hover:text-black transition-flow">Questions</a>
+                <a href="tel:5550000000" class="hover:text-black transition-flow font-bold text-black">(555) 000-0000</a>
+            </div>
+            <button class="bg-[#101729] text-white h-10 px-6 rounded-full text-[11px] font-bold uppercase tracking-wider hover:bg-black transition-flow shadow-lg">
+                Book Session
+            </button>
+        </div>
+    </nav>
+
+    <header class="relative pt-40 pb-24 lg:pb-32 overflow-hidden">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 relative z-10">
+                <div class="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-white border border-black/5 shadow-sm mb-10">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="ui-label !text-[10px]">Now Booking for 2026</span>
+                </div>
+                <h1 class="display-serif text-6xl md:text-[96px] mb-8 text-[#101729]">
+                    Systemize your <br>
+                    <span class="italic text-[#1C1C19]/30">creative genius.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-[#1C1C19]/70 mb-10 leading-snug max-w-[480px] font-light">
+                    We build the operational systems that allow high-performing founders to exit the day-to-day without losing momentum.
+                </p>
+                <div class="flex flex-wrap items-center gap-6">
+                    <button class="bg-[#101729] text-white h-14 px-10 rounded-full text-md font-semibold hover:scale-[1.02] transition-flow shadow-editorial">
+                        Claim Your Audit
+                    </button>
+                    <div class="flex items-center gap-3">
+                        <div class="flex -space-x-3">
+                            <div class="h-10 w-10 rounded-full ring-2 ring-white bg-gray-200"></div>
+                            <div class="h-10 w-10 rounded-full ring-2 ring-white bg-gray-300"></div>
+                            <div class="h-10 w-10 rounded-full ring-2 ring-white bg-gray-400"></div>
+                        </div>
+                        <p class="text-[11px] font-bold text-black/40 uppercase tracking-widest">500+ Practices Built</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-5 relative">
+                <div class="bg-white p-2 md:p-3 rounded-[40px] shadow-editorial border-delicate transform rotate-2 hover:rotate-0 transition-flow duration-1000">
+                    <div class="aspect-[4/5] bg-[#E8E6E1] rounded-[32px] overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<style>
+    /* Single spin animation for the icons */
+    @keyframes spin-once {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-once {
+      animation: spin-once 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+  
+    /* Infinite marquee scroll for the logos */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 25s linear infinite;
+    }
+    /* Pause animation on hover for better UX */
+    .marquee-container:hover .animate-marquee {
+      animation-play-state: paused;
+    }
+  </style>
+  
+  <section class="py-16 bg-white overflow-hidden border-t border-black/5">
+      <div class="max-w-[1200px] mx-auto px-6 text-center flex flex-col items-center">
+          
+          <p class="text-[#1E2029] text-sm font-medium mb-10 tracking-wide">
+              Over 190 design projects created for top brands including
+          </p>
+  
+          <div class="relative w-full max-w-[1000px] mx-auto marquee-container" 
+               style="mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);">
+              
+              <div class="animate-marquee flex items-center">
+                  <div class="flex items-center gap-16 md:gap-24 px-8 md:px-12 shrink-0 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 6l5.5 11h-11L12 8z"/></svg> oms&copy;
+                      </div>
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12s1.5-3 4-3 4 3 4 3-1.5 3-4 3-4-3-4-3z"/></svg> arch+
+                      </div>
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2z"/></svg> scientific
+                      </div>
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M2 12c0 5.5 4.5 10 10 10s10-4.5 10-10S17.5 2 12 2 2 6.5 2 12zm10-8c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8z"/></svg> logoipsum
+                      </div>
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v4h4v2h-4v4h-2v-4H7v-2h4V7z"/></svg> waterline
+                      </div>
+                  </div>
+  
+                  <div class="flex items-center gap-16 md:gap-24 px-8 md:px-12 shrink-0 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 6l5.5 11h-11L12 8z"/></svg> oms&copy;
+                      </div>
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12s1.5-3 4-3 4 3 4 3-1.5 3-4 3-4-3-4-3z"/></svg> arch+
+                      </div>
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2z"/></svg> scientific
+                      </div>
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M2 12c0 5.5 4.5 10 10 10s10-4.5 10-10S17.5 2 12 2 2 6.5 2 12zm10-8c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8z"/></svg> logoipsum
+                      </div>
+                      <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-[#48505D]">
+                          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v4h4v2h-4v4h-2v-4H7v-2h4V7z"/></svg> waterline
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+    <section id="expertise" class="py-32 bg-white">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+            <div class="mb-20">
+                <span class="ui-label mb-4 block">Our Expertise</span>
+                <h2 class="display-serif text-5xl md:text-7xl text-[#101729]">Core Frameworks.</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-8 bg-[#FAF9F6] p-10 md:p-14 rounded-[32px] border-delicate hover:shadow-editorial transition-flow group">
+                    <span class="display-serif text-5xl text-black/10 group-hover:text-black/30 mb-8 block transition-flow">01</span>
+                    <h3 class="display-serif text-4xl mb-4">The Time Audit</h3>
+                    <p class="text-black/50 text-lg leading-snug mb-12 max-w-md">Eliminate the 20% of administrative friction draining 80% of your energy. Reclaim your calendar for deep work.</p>
+                    <div class="pt-8 border-t border-black/5 flex justify-between items-center">
+                        <div>
+                            <p class="ui-label !text-[9px] mb-1">One-time</p>
+                            <p class="font-bold text-sm">$250 — 90 Minutes</p>
+                        </div>
+                        <span class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-[#101729] group-hover:text-white transition-flow">&rarr;</span>
+                    </div>
+                </div>
+                <div class="md:col-span-4 flex flex-col gap-6">
+                    <div class="flex-1 bg-[#101729] text-white p-10 rounded-[32px] hover:scale-[1.02] transition-flow">
+                        <h3 class="display-serif text-3xl mb-4">Scaling</h3>
+                        <p class="text-white/50 text-sm leading-snug">Custom SOPs and hiring frameworks for growing teams.</p>
+                        <p class="mt-8 font-bold text-xs uppercase tracking-widest text-white/30">$800 — Half Day</p>
+                    </div>
+                    <div class="flex-1 bg-[#E8E6E1] p-10 rounded-[32px] hover:scale-[1.02] transition-flow text-[#101729]">
+                        <h3 class="display-serif text-3xl mb-4">Recovery</h3>
+                        <p class="text-black/40 text-sm leading-snug">Burnout prevention and energy management protocols.</p>
+                        <p class="mt-8 font-bold text-xs uppercase tracking-widest text-black/20">$180 — 60 Minutes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-32 bg-[#FAF9F6]">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="ui-label mb-6 block">The Workflow</span>
+                    <h2 class="display-serif text-6xl md:text-8xl mb-10">Simple. <br>Proven. <br><span class="italic text-black/30">Effective.</span></h2>
+                    <p class="text-black/50 text-lg max-w-sm mb-12 leading-snug">We take the guesswork out of booking. Here is exactly what happens when you click.</p>
+                </div>
+                <div class="space-y-12">
+                    <div class="flex gap-8 group">
+                        <div class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-[#101729] group-hover:text-white transition-flow font-bold italic">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Instant Booking</h4>
+                            <p class="text-black/40 text-sm leading-snug">Choose a slot that works for you. No back-and-forth emails.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-8 group">
+                        <div class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-[#101729] group-hover:text-white transition-flow font-bold italic">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Strategy Session</h4>
+                            <p class="text-black/40 text-sm leading-snug">A focused, 1:1 deep dive into your specific operational bottlenecks.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-8 group">
+                        <div class="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-[#101729] group-hover:text-white transition-flow font-bold italic">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Implementation Kit</h4>
+                            <p class="text-black/40 text-sm leading-snug">Receive a custom blueprint and task list 60 minutes after the call.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-32 bg-white">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div class="max-w-xl">
+                    <span class="ui-label mb-4 block">Testimonials</span>
+                    <h2 class="display-serif text-5xl md:text-7xl text-[#101729]">Real Results.</h2>
+                </div>
+                <div class="flex items-center gap-4 pb-4">
+                    <span class="text-amber-600 text-xl tracking-widest">★★★★★</span>
+                    <span class="text-sm font-bold uppercase tracking-widest opacity-40">4.9/5 Average</span>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-10 rounded-[32px] border-delicate bg-[#FAF9F6] shadow-subtle">
+                    <p class="italic text-lg text-black/70 mb-8 leading-snug">"Within 30 days, we reclaimed 12 hours a week. The ROI on the initial audit was cleared in the first week."</p>
+                    <p class="font-bold text-sm">Sarah Jenkins <span class="font-normal opacity-40 ml-2">Founder, Nexus</span></p>
+                </div>
+                <div class="p-10 rounded-[32px] border-delicate bg-[#FAF9F6] shadow-subtle">
+                    <p class="italic text-lg text-black/70 mb-8 leading-snug">"The only consultancy that doesn't just give advice, but builds the actual workflows for you. Zero friction."</p>
+                    <p class="font-bold text-sm">Marcus Vance <span class="font-normal opacity-40 ml-2">VP, TechFlow</span></p>
+                </div>
+                <div class="p-10 rounded-[32px] border-delicate bg-[#FAF9F6] shadow-subtle">
+                    <p class="italic text-lg text-black/70 mb-8 leading-snug">"Finally a system that scales with us. We’ve grown 40% this year without increasing my workload."</p>
+                    <p class="font-bold text-sm">Jane Roe <span class="font-normal opacity-40 ml-2">CEO, Bloom Co.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-32 bg-[#FAF9F6]">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-20 items-center">
+            <div class="bg-white p-2 rounded-[40px] border-delicate shadow-editorial">
+                <div class="aspect-square bg-[#E8E6E1] rounded-[32px] overflow-hidden">
+                    </div>
+            </div>
+            <div>
+                <span class="ui-label mb-6 block">Authority</span>
+                <h2 class="display-serif text-6xl mb-8">Architects of Efficiency.</h2>
+                <p class="text-black/50 text-lg leading-snug mb-10">Founded by operational experts with over 15 years in high-growth management. We don't just coach; we build the frameworks.</p>
+                <div class="pt-8 border-t border-black/5">
+                    <h4 class="font-bold text-xl mb-1">Michael Waterbury</h4>
+                    <p class="ui-label !text-[10px]">Lead Operational Architect</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book" class="py-32 bg-white">
+        <div class="max-w-[640px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="ui-label mb-4 block">Availability</span>
+                <h2 class="display-serif text-5xl md:text-6xl text-[#101729] mb-6">Reserve your session.</h2>
+                <p class="text-black/40">Select a service and time. We confirm within 60 minutes.</p>
+            </div>
+            <div class="p-8 md:p-12 rounded-[40px] bg-[#FAF9F6] border-delicate shadow-editorial">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="ui-label !text-[9px] mb-2 block">Service</label>
+                            <select class="w-full h-14 px-4 bg-white border-transparent rounded-2xl text-sm focus:ring-1 ring-black/10 outline-none">
+                                <option>90-Min Time Audit ($250)</option>
+                                <option>System Scaling ($800)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="ui-label !text-[9px] mb-2 block">Date</label>
+                            <input type="date" class="w-full h-14 px-4 bg-white border-transparent rounded-2xl text-sm outline-none">
+                        </div>
+                    </div>
+                    <button class="w-full h-16 bg-[#101729] text-white rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-black transition-flow">
+                        Confirm My Booking
+                    </button>
+                    <p class="text-center text-[11px] text-black/30 font-medium tracking-tight">Zero-risk. Cancel up to 24 hours before your session.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-32 border-t border-delicate bg-white">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 grid lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+                <span class="ui-label mb-6 block">FAQ</span>
+                <h2 class="display-serif text-5xl text-[#101729] mb-6 leading-tight">Everything you need to know.</h2>
+                <p class="text-black/40 text-sm leading-snug mb-8">Can't find what you're looking for? Our team is available Mon-Fri for direct inquiries.</p>
+                <a href="mailto:hello@waterbury.com" class="text-sm font-bold border-b border-black/10 pb-1 hover:border-black transition-flow inline-flex items-center gap-2">
+                    Contact Support <span>&rarr;</span>
+                </a>
+            </div>
+            <div class="lg:col-span-8 divide-y divide-black/5">
+                <details class="group">
+                    <summary class="flex items-center justify-between py-8 cursor-pointer list-none">
+                        <h3 class="text-lg font-bold tracking-tight">How does the 90-minute audit actually work?</h3>
+                        <span class="text-2xl font-light text-black/20 group-open:rotate-45 transition-flow">+</span>
+                    </summary>
+                    <p class="pb-8 text-black/50 text-sm leading-snug max-w-xl">
+                        We map your current stack, identify "energy leaks," and provide a 30-day implementation roadmap. You leave with a concrete action plan, not just vague advice.
+                    </p>
+                </details>
+                <details class="group">
+                    <summary class="flex items-center justify-between py-8 cursor-pointer list-none">
+                        <h3 class="text-lg font-bold tracking-tight">Is this for solo founders or teams?</h3>
+                        <span class="text-2xl font-light text-black/20 group-open:rotate-45 transition-flow">+</span>
+                    </summary>
+                    <p class="pb-8 text-black/50 text-sm leading-snug max-w-xl">
+                        We specialize in "the transition"—where solo founders need to hire or teams of 3-10 feel the friction of unwritten rules and operational chaos.
+                    </p>
+                </details>
+                <details class="group">
+                    <summary class="flex items-center justify-between py-8 cursor-pointer list-none">
+                        <h3 class="text-lg font-bold tracking-tight">What if I need to cancel?</h3>
+                        <span class="text-2xl font-light text-black/20 group-open:rotate-45 transition-flow">+</span>
+                    </summary>
+                    <p class="pb-8 text-black/50 text-sm leading-snug max-w-xl">
+                        You can reschedule any session with 24 hours notice directly from your confirmation email with zero penalty. We value your time and ours.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative bg-[#0B0B0C] pt-32 pb-40 overflow-hidden text-center">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.3)_0%,transparent_70%)]"></div>
+        <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+            <span class="ui-label !text-white/40 mb-10 block">Ready to scale?</span>
+            <h2 class="display-serif text-6xl md:text-[90px] text-white mb-14">The architecture <br><span class="italic text-white/30">of your exit.</span></h2>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <button class="bg-white text-black h-16 px-12 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/90 transition-flow">See Open Slots</button>
+                <button class="bg-white/5 text-white h-16 px-12 rounded-full border border-white/10 font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-flow">Our Story &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0B0B0C] border-t border-white/5 pt-24 pb-12 text-white">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-sm text-white/40">
+            <div class="grid grid-cols-2 md:grid-cols-12 gap-y-16 mb-24">
+                <div class="col-span-2 md:col-span-6">
+                    <div class="text-2xl display-serif text-white mb-8">Waterbury.</div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-emerald-500/5 border border-emerald-500/10">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">All systems operational</span>
+                    </div>
+                </div>
+                <div class="col-span-1 md:col-span-3">
+                    <h5 class="ui-label !text-white/20 mb-6">Expertise</h5>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white transition-flow">The Audit</a></li>
+                        <li><a href="#" class="hover:text-white transition-flow">Scaling</a></li>
+                        <li><a href="#" class="hover:text-white transition-flow">Recovery</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-1 md:col-span-3">
+                    <h5 class="ui-label !text-white/20 mb-6">Connect</h5>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white transition-flow">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-white transition-flow">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-6 text-[10px] uppercase tracking-[0.2em]">
+                <p>© 2026 Waterbury Group LLC</p>
+                <div class="flex gap-8">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="md:hidden fixed bottom-6 left-6 right-6 h-16 glass-nav rounded-2xl z-[100] mobile-sticky-bar flex items-center justify-between px-4 border border-black/5">
+        <div class="flex flex-col">
+            <span class="text-[9px] uppercase font-bold text-black/40">Limited Slots</span>
+            <span class="text-[11px] font-bold">Reserve Now</span>
+        </div>
+        <button class="bg-[#101729] text-white h-10 px-6 rounded-xl text-[10px] font-bold uppercase tracking-wider">
+            Check Times
+        </button>
+    </div>
+
+
+</body>
+</html>
