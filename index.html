@@ -114,8 +114,8 @@
           inset: 0;
           width: 100%;
           height: 100%;
-          object-fit: contain;
-          object-position: center;
+          object-fit: cover;
+          object-position: center 20%;
           transform: translateZ(0);
           filter: saturate(0.95) contrast(1.03);
         }
@@ -130,6 +130,7 @@
                 <a href="#expertise" class="hover:text-black transition-flow">Services</a>
                 <a href="#process" class="hover:text-black transition-flow">Process</a>
                 <a href="#faq" class="hover:text-black transition-flow">Questions</a>
+                <a href="tel:+12135550192" class="hover:text-black transition-flow">(213) 555-0192</a>
             </div>
             <button class="bg-[#101729] text-white h-10 px-6 rounded-full text-[11px] font-bold uppercase tracking-wider hover:bg-black transition-flow shadow-lg">
                 Book Session
@@ -137,12 +138,12 @@
         </div>
     </nav>
 
-    <header class="relative pt-40 pb-24 lg:pb-32 overflow-hidden bg-white">
+    <header class="relative pt-40 pb-24 lg:pb-32 overflow-hidden" style="background-color:#F0EDE8; min-height: 600px;">
         <div class="max-w-[1200px] mx-auto px-6 md:px-12 grid lg:grid-cols-12 gap-20 items-center">
             <div class="lg:col-span-7 relative z-10">
                 <div class="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-white border border-black/5 shadow-sm mb-10">
                     <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                    <span class="ui-label !text-[10px] text-amber-900/60 font-bold uppercase tracking-wider">Portfolio building: $1,500 discount</span>
+                    <span class="ui-label !text-[10px] text-amber-900/60 font-bold uppercase tracking-wider">★★★★★ &nbsp;Real client mockup — see what's possible</span>
                 </div>
                 
                 <h1 class="font-sans font-semibold tracking-[-0.04em] text-[40px] md:text-[58px] mb-8 text-[#101729] leading-[1.2]">
@@ -162,13 +163,14 @@
                             See examples &rarr;
                         </a>
                     </div>
+                    <p class="text-[12px] text-[#1C1C19]/40 font-medium tracking-tight">No credit card &nbsp;·&nbsp; Free to start &nbsp;·&nbsp; Response within 1 hour</p>
                 </div>
             </div>
             
-            <div class="lg:absolute lg:top-0 lg:right-0 lg:bottom-0 lg:w-[45%] h-[500px] lg:h-full w-full relative z-0">
+            <div class="lg:absolute lg:top-0 lg:right-0 lg:bottom-0 lg:w-[45%] h-[500px] lg:h-auto w-full relative z-0 hero-video-wrap">
                 <video
                     id="heroVideo"
-                    class="w-full h-full object-cover"
+                    class="hero-video"
                     autoplay
                     muted
                     loop
@@ -315,7 +317,7 @@
                         obs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.22, rootMargin: '0px 0px -20% 0px' });
+            }, { threshold: 0.3, rootMargin: '0px 0px -20% 0px' });
 
             cards.forEach(card => observer.observe(card));
         })();
@@ -446,21 +448,21 @@
                 <div class="p-10 rounded-[32px] border-delicate bg-[#FAF9F6] shadow-subtle hover:shadow-editorial transition-flow">
                     <p class="text-lg text-black/80 mb-8 leading-snug">"Within 30 days, we reclaimed 15 hours a week per team member. The ROI on our initial audit was cleared in the first week."</p>
                     <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-gray-200 rounded-full"></div>
+                        <div class="h-10 w-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style="background-color:#2D5BE3;">SJ</div>
                         <p class="font-bold text-sm">Sarah Jenkins <br><span class="font-normal opacity-50 text-xs">Founder, Nexus Creative</span></p>
                     </div>
                 </div>
                 <div class="p-10 rounded-[32px] border-delicate bg-[#FAF9F6] shadow-subtle hover:shadow-editorial transition-flow">
                     <p class="text-lg text-black/80 mb-8 leading-snug">"The only consultancy that doesn't just give vague advice. They build the actual workflows. We doubled our capacity without hiring."</p>
                     <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-gray-300 rounded-full"></div>
+                        <div class="h-10 w-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style="background-color:#0D9488;">MV</div>
                         <p class="font-bold text-sm">Marcus Vance <br><span class="font-normal opacity-50 text-xs">VP of Ops, TechFlow</span></p>
                     </div>
                 </div>
                 <div class="p-10 rounded-[32px] border-delicate bg-[#FAF9F6] shadow-subtle hover:shadow-editorial transition-flow">
                     <p class="text-lg text-black/80 mb-8 leading-snug">"Finally an operational system that scales with us. We've grown revenue by 40% this year and I'm actually working fewer weekends."</p>
                     <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-gray-400 rounded-full"></div>
+                        <div class="h-10 w-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style="background-color:#7C3AED;">JR</div>
                         <p class="font-bold text-sm">Jane Roe <br><span class="font-normal opacity-50 text-xs">CEO, Bloom Agency</span></p>
                     </div>
                 </div>
