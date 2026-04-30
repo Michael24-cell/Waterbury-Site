@@ -241,8 +241,8 @@
         .reveal-card {
             opacity: 0;
             transform: translate3d(0, 10px, 0);
-            transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
         }
 
@@ -315,7 +315,7 @@
                         obs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+            }, { threshold: 0.22, rootMargin: '0px 0px -20% 0px' });
 
             cards.forEach(card => observer.observe(card));
         })();
@@ -744,5 +744,284 @@
       });
     </script>
 
+<script>
+    (function () {
+      function countUp(el, target, duration) {
+        var start = 0;
+        var startTime = null;
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          // ease out cubic
+          var ease = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(ease * target);
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(step);
+      }
+     
+      function init() {
+        // Find the paragraph containing "190" and wrap it
+        var paras = document.querySelectorAll('p');
+        var targetEl = null;
+        paras.forEach(function (p) {
+          if (p.textContent.indexOf('190') !== -1 && p.textContent.indexOf('design') !== -1) {
+            targetEl = p;
+          }
+        });
+        if (!targetEl) return;
+     
+        // Replace "190" with a span we can animate
+        targetEl.innerHTML = targetEl.innerHTML.replace('190', '<span id="count-190">0</span>');
+        var countEl = document.getElementById('count-190');
+        if (!countEl) return;
+     
+        var triggered = false;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && !triggered) {
+              triggered = true;
+              countUp(countEl, 190, 1400);
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.5 });
+     
+        observer.observe(targetEl);
+      }
+     
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+    </script>
+
+    <!--
+  ════════════════════════════════════════════════════
+  WATERBURY — PARTICLE EFFECTS  (paste before </body>)
+
+  1. Floating dust  → dark CTA "Your first visit is free"
+  2. Scatter dots   → #expertise audit cards section
+  3. Trail dot      → #faq section
+  ════════════════════════════════════════════════════
+-->
+
+<style>
+    /* Shared canvas base */
+    .wb-particle-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+  
+    .wb-particle-host {
+      position: relative;
+      overflow: hidden;
+    }
+  
+    /* Keep content above canvas */
+    .wb-particle-host > *:not(canvas) {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+  
+  <script>
+  (function () {
+  
+    /* ─────────────────────────────────────────
+       UTIL: find section by text content
+    ───────────────────────────────────────── */
+    function findSectionByText(text) {
+      var sections = document.querySelectorAll('section');
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].textContent.indexOf(text) !== -1) return sections[i];
+      }
+      return null;
+    }
+  
+    function makeCanvas(host) {
+      host.classList.add('wb-particle-host');
+      var c = document.createElement('canvas');
+      c.className = 'wb-particle-canvas';
+      host.insertBefore(c, host.firstChild);
+      return c;
+    }
+  
+    /* ─────────────────────────────────────────
+       1. FLOATING DUST — dark CTA section
+       Tiny white dots drift upward and fade
+    ───────────────────────────────────────── */
+    function initDust() {
+      var host = findSectionByText('Your first visit is free');
+      if (!host) return;
+      var canvas = makeCanvas(host);
+      var ctx = canvas.getContext('2d');
+      var particles = [];
+      var running = false;
+      var raf;
+  
+      function resize() {
+        canvas.width = host.offsetWidth;
+        canvas.height = host.offsetHeight;
+      }
+  
+      function spawn() {
+        return {
+          x: Math.random() * canvas.width,
+          y: canvas.height + Math.random() * 40,
+          size: Math.random() * 1.8 + 0.4,
+          speed: Math.random() * 0.4 + 0.15,
+          opacity: Math.random() * 0.4 + 0.1,
+          drift: (Math.random() - 0.5) * 0.3
+        };
+      }
+  
+      function init() {
+        resize();
+        particles = [];
+        for (var i = 0; i < 38; i++) {
+          var p = spawn();
+          p.y = Math.random() * canvas.height; // seed spread
+          particles.push(p);
+        }
+      }
+  
+      function tick() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(function (p, i) {
+          p.y -= p.speed;
+          p.x += p.drift;
+          // fade in near bottom, fade out near top
+          var lifeRatio = 1 - (p.y / canvas.height);
+          var alpha = p.opacity * Math.sin(lifeRatio * Math.PI);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255,255,255,' + Math.max(0, alpha) + ')';
+          ctx.fill();
+          if (p.y < -10) particles[i] = spawn();
+        });
+        raf = requestAnimationFrame(tick);
+      }
+  
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !running) {
+            running = true;
+            init();
+            tick();
+          } else if (!e.isIntersecting && running) {
+            running = false;
+            cancelAnimationFrame(raf);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          }
+        });
+      }, { threshold: 0.1 });
+  
+      observer.observe(host);
+      window.addEventListener('resize', function () { if (running) { resize(); } });
+    }
+  
+    /* ─────────────────────────────────────────
+       2. SCATTER DOTS — #expertise section
+       Cluster of dots scatter outward on scroll
+    ───────────────────────────────────────── */
+    function initScatter() {
+      var host = document.querySelector('#expertise');
+      if (!host) return;
+      var canvas = makeCanvas(host);
+      var ctx = canvas.getContext('2d');
+      var dots = [];
+      var scattered = false;
+      var animating = false;
+      var raf;
+  
+      function resize() {
+        canvas.width = host.offsetWidth;
+        canvas.height = host.offsetHeight;
+      }
+  
+      function initDots() {
+        resize();
+        dots = [];
+        var cx = canvas.width * 0.82;
+        var cy = canvas.height * 0.38;
+        var count = 22;
+        for (var i = 0; i < count; i++) {
+          var angle = (Math.PI * 2 / count) * i + Math.random() * 0.4;
+          var r = Math.random() * 18 + 4;
+          dots.push({
+            x: cx + Math.cos(angle) * r,
+            y: cy + Math.sin(angle) * r,
+            originX: cx + Math.cos(angle) * r,
+            originY: cy + Math.sin(angle) * r,
+            targetX: cx + Math.cos(angle) * (Math.random() * 160 + 60),
+            targetY: cy + Math.sin(angle) * (Math.random() * 160 + 60),
+            size: Math.random() * 2 + 1,
+            progress: 0,
+            speed: Math.random() * 0.012 + 0.006,
+            opacity: Math.random() * 0.25 + 0.1
+          });
+        }
+      }
+  
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        dots.forEach(function (d) {
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, d.size, 0, Math.PI * 2);
+          // fade out as they travel far
+          var fade = scattered ? (1 - d.progress) * d.opacity : d.opacity;
+          ctx.fillStyle = 'rgba(16,23,41,' + Math.max(0, fade) + ')';
+          ctx.fill();
+        });
+      }
+  
+      function animateScatter() {
+        var done = true;
+        dots.forEach(function (d) {
+          if (d.progress < 1) {
+            d.progress = Math.min(1, d.progress + d.speed);
+            // ease out cubic
+            var e = 1 - Math.pow(1 - d.progress, 3);
+            d.x = d.originX + (d.targetX - d.originX) * e;
+            d.y = d.originY + (d.targetY - d.originY) * e;
+            done = false;
+          }
+        });
+        draw();
+        if (!done) {
+          raf = requestAnimationFrame(animateScatter);
+        } else {
+          animating = false;
+        }
+      }
+  
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !scattered) {
+            scattered = true;
+            animating = true;
+            setTimeout(function () {
+              animateScatter();
+            }, 500); // wait for card reveal to start first
+          }
+        });
+      }, { threshold: 0.3 });
+  
+      initDots();
+      draw();
+      observer.observe(host);
+      window.addEventListener('resize', function () { initDots(); draw(); scattered = false; });
+    }
+
+  </script>
+    
 </body>
 </html>
