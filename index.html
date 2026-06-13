@@ -567,10 +567,10 @@
 <!-- ───────────────────────────────────────────
      HERO
 ──────────────────────────────────────────── -->
-<header style="background:#ECEAE0; padding-top:140px; padding-bottom:100px; overflow:hidden; position:relative; min-height:860px;">
+<header style="background:#ECEAE0; padding-top:160px; padding-bottom:64px; overflow:hidden; position:relative; min-height:800px;">
     <!-- Background depth -->
     <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 70% 40%, rgba(8,14,29,0.055) 0%, transparent 65%), radial-gradient(ellipse at 10% 80%, rgba(167,111,86,0.04) 0%, transparent 50%); pointer-events:none;"></div>
-    <div class="hero-grid" style="max-width:1180px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center; position:relative; z-index:1;">
+    <div class="hero-grid" style="max-width:1180px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:52px; align-items:center; position:relative; z-index:1; transform:scale(1.06); transform-origin:top center;">
 
         <!-- Left: text -->
         <div style="position:relative; z-index:2;">
@@ -606,12 +606,12 @@
         </div>
 
         <!-- Right: live site preview -->
-        <div class="hero-mockup" style="position:relative; z-index:1; align-self:stretch; display:flex; flex-direction:column; justify-content:center; margin-right:-40px;">
+        <div class="hero-mockup" style="position:relative; z-index:1; align-self:stretch; display:flex; flex-direction:column; justify-content:center; margin-right:-64px;">
             <div style="border-radius:12px; overflow:hidden; box-shadow:0 20px 52px rgba(8,14,29,0.18), 0 0 0 1px rgba(8,14,29,0.08);">
-                <div class="hero-video-vp" style="overflow:hidden; background:#0d1525; height:560px;">
+                <div class="hero-video-vp" style="overflow:hidden; background:#f0ede8;">
                     <video
                         autoplay muted loop playsinline
-                        style="width:100%; height:100%; object-fit:cover; object-position:top center; display:block;"
+                        style="width:100%; height:auto; display:block;"
                         aria-hidden="true">
                         <source src="Slowmornings-video.mp4" type="video/mp4">
                     </video>
@@ -620,7 +620,7 @@
             <!-- Label -->
             <div style="margin-top:12px; display:flex; align-items:center; gap:7px; padding-left:2px;">
                 <span style="width:6px; height:6px; border-radius:50%; background:#22c55e; display:block; flex-shrink:0; box-shadow:0 0 0 2px rgba(34,197,94,0.18);"></span>
-                <span style="font-size:11px; font-weight:600; color:var(--slate); opacity:0.52; letter-spacing:0.08em; text-transform:uppercase; font-family:'DM Sans',sans-serif;">Live site preview</span>
+                <span style="font-size:11px; font-weight:600; color:var(--slate); opacity:0.52; letter-spacing:0.08em; text-transform:uppercase; font-family:'DM Sans',sans-serif;">Featured website build</span>
             </div>
         </div>
     </div>
@@ -633,45 +633,42 @@
 <section style="background:white; padding:44px 0 52px; overflow:hidden; border-bottom:1px solid var(--border);">
     <div style="max-width:1200px; margin:0 auto; padding:0 32px;">
 
-        <!-- Count stat -->
+        <!-- Trust credential -->
         <div style="text-align:center; margin-bottom:28px;">
-            <div style="display:inline-flex; align-items:baseline; gap:2px;">
-                <span id="projectCount" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:42px; font-weight:600; color:var(--ink); letter-spacing:-0.03em; line-height:1;">0</span>
-                <span style="font-family:'Cormorant Garamond',Georgia,serif; font-size:42px; font-weight:600; color:var(--clay); letter-spacing:-0.03em; line-height:1;">+</span>
-            </div>
+            <span style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--slate); opacity:0.70; font-family:'DM Sans',sans-serif;">10 years of ecommerce design experience</span>
         </div>
 
         <div class="marquee-outer" style="overflow:hidden; mask-image:linear-gradient(to right, transparent, black 6%, black 94%, transparent); -webkit-mask-image:linear-gradient(to right, transparent, black 6%, black 94%, transparent);">
             <div class="marquee-track">
                 <!-- First set -->
                 <div style="display:flex; align-items:center; flex-shrink:0;">
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Website Audits</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Conversion-Focused Design</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Custom Builds</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Performance Diagnosis</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Business-Specific UX</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Ongoing Optimization</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Website Audits</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Conversion-Focused Design</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Custom Builds</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Performance Diagnosis</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Business-Specific UX</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Ongoing Optimization</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
                 </div>
                 <!-- Duplicate for seamless loop -->
                 <div style="display:flex; align-items:center; flex-shrink:0;">
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Website Audits</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Conversion-Focused Design</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Custom Builds</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Performance Diagnosis</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Business-Specific UX</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
-                    <span style="font-size:13px; font-weight:600; letter-spacing:0.10em; text-transform:uppercase; color:var(--slate); opacity:0.82; white-space:nowrap; padding:0 28px; font-family:'DM Sans',sans-serif;">Ongoing Optimization</span>
-                    <span style="width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:0.55; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Website Audits</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Conversion-Focused Design</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Custom Builds</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Performance Diagnosis</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Business-Specific UX</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
+                    <span style="font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate); opacity:0.90; white-space:nowrap; padding:0 36px; font-family:'DM Sans',sans-serif;">Ongoing Optimization</span>
+                    <span style="width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:0.70; flex-shrink:0; display:inline-block;"></span>
                 </div>
             </div>
         </div>
@@ -686,15 +683,11 @@
 <section id="services" style="background:var(--ivory); padding:100px 0;">
     <div style="max-width:1180px; margin:0 auto; padding:0 32px;">
 
-        <div style="max-width:640px; margin-bottom:56px;" class="reveal">
-            <p style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--clay); opacity:0.8; margin-bottom:16px; font-family:'DM Sans',sans-serif;">What we do</p>
-            <h2 style="font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(42px, 5.5vw, 66px); color:var(--ink); line-height:0.97; letter-spacing:-0.028em; margin-bottom:20px;">
-                Find what's blocking<br>clarity, trust, and conversion.
-            </h2>
-            <p style="font-size:17px; font-weight:400; color:var(--slate); opacity:0.72; line-height:1.65; max-width:520px;">
-                We start by understanding what the site and business actually need — then decide whether to improve, redesign, or rebuild.
+        <div style="max-width:560px; margin-bottom:44px;" class="reveal">
+            <h2 style="font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(42px, 5.5vw, 66px); color:var(--ink); line-height:0.97; letter-spacing:-0.028em; margin-bottom:18px;">Start with a diagnosis.</h2>
+            <p style="font-size:17px; font-weight:400; color:var(--slate); opacity:0.75; line-height:1.65; max-width:480px;">
+                We analyze your site and show you a clear direction before you commit to a build.
             </p>
-            <span class="gold-line" style="margin-top:20px;"></span>
         </div>
 
         <!-- Featured card: Site Audit — diagnostic entry point -->
@@ -707,15 +700,15 @@
                     <h3 style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(36px,4.2vw,52px); font-weight:400; font-style:italic; color:var(--ivory); margin-bottom:16px; letter-spacing:-0.022em; line-height:1.02;">Site Audit</h3>
                     <p style="font-size:16px; color:var(--ivory); opacity:0.80; line-height:1.55; margin-bottom:16px; max-width:480px; font-weight:500;">Find what's blocking clarity, trust, and conversion.</p>
                     <ul style="list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:28px;">
-                        <li style="display:flex; align-items:flex-start; gap:9px; font-size:14px; color:var(--ivory); opacity:0.62; line-height:1.5;">
+                        <li style="display:flex; align-items:flex-start; gap:9px; font-size:15px; color:var(--ivory); opacity:0.72; line-height:1.6;">
                             <span style="width:4px; height:4px; border-radius:50%; background:var(--clay); margin-top:7px; flex-shrink:0;"></span>
                             Where the site is losing trust or credibility
                         </li>
-                        <li style="display:flex; align-items:flex-start; gap:9px; font-size:14px; color:var(--ivory); opacity:0.62; line-height:1.5;">
+                        <li style="display:flex; align-items:flex-start; gap:9px; font-size:15px; color:var(--ivory); opacity:0.72; line-height:1.6;">
                             <span style="width:4px; height:4px; border-radius:50%; background:var(--clay); margin-top:7px; flex-shrink:0;"></span>
                             What visitors are confused about — and where they leave
                         </li>
-                        <li style="display:flex; align-items:flex-start; gap:9px; font-size:14px; color:var(--ivory); opacity:0.62; line-height:1.5;">
+                        <li style="display:flex; align-items:flex-start; gap:9px; font-size:15px; color:var(--ivory); opacity:0.72; line-height:1.6;">
                             <span style="width:4px; height:4px; border-radius:50%; background:var(--clay); margin-top:7px; flex-shrink:0;"></span>
                             Where the CTA is failing and why it isn't landing
                         </li>
@@ -731,23 +724,23 @@
                     <div style="display:flex; flex-direction:column; gap:11px;">
                         <div style="display:flex; align-items:center; gap:9px;">
                             <div style="width:5px; height:5px; border-radius:50%; background:var(--clay); flex-shrink:0;"></div>
-                            <span style="font-size:12px; color:var(--ivory); opacity:0.70; font-family:'DM Sans',sans-serif;">Conversion friction</span>
+                            <span style="font-size:13px; color:var(--ivory); opacity:0.80; font-family:'DM Sans',sans-serif;">Conversion friction</span>
                         </div>
                         <div style="display:flex; align-items:center; gap:9px;">
                             <div style="width:5px; height:5px; border-radius:50%; background:var(--clay); flex-shrink:0;"></div>
-                            <span style="font-size:12px; color:var(--ivory); opacity:0.70; font-family:'DM Sans',sans-serif;">CTA placement</span>
+                            <span style="font-size:13px; color:var(--ivory); opacity:0.80; font-family:'DM Sans',sans-serif;">CTA placement</span>
                         </div>
                         <div style="display:flex; align-items:center; gap:9px;">
                             <div style="width:5px; height:5px; border-radius:50%; background:rgba(167,111,86,0.55); flex-shrink:0;"></div>
-                            <span style="font-size:12px; color:var(--ivory); opacity:0.70; font-family:'DM Sans',sans-serif;">Mobile usability</span>
+                            <span style="font-size:13px; color:var(--ivory); opacity:0.80; font-family:'DM Sans',sans-serif;">Mobile usability</span>
                         </div>
                         <div style="display:flex; align-items:center; gap:9px;">
                             <div style="width:5px; height:5px; border-radius:50%; background:rgba(246,243,236,0.22); flex-shrink:0;"></div>
-                            <span style="font-size:12px; color:var(--ivory); opacity:0.70; font-family:'DM Sans',sans-serif;">Page speed</span>
+                            <span style="font-size:13px; color:var(--ivory); opacity:0.80; font-family:'DM Sans',sans-serif;">Page speed</span>
                         </div>
                         <div style="display:flex; align-items:center; gap:9px;">
                             <div style="width:5px; height:5px; border-radius:50%; background:rgba(246,243,236,0.12); flex-shrink:0;"></div>
-                            <span style="font-size:12px; color:var(--ivory); opacity:0.70; font-family:'DM Sans',sans-serif;">Copy clarity</span>
+                            <span style="font-size:13px; color:var(--ivory); opacity:0.80; font-family:'DM Sans',sans-serif;">Copy clarity</span>
                         </div>
                     </div>
                 </div>
@@ -764,11 +757,11 @@
                 <h3 style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(28px,3vw,38px); font-weight:400; font-style:italic; color:var(--ink); margin-bottom:12px; letter-spacing:-0.022em; line-height:1.05;">Redesign the Flow</h3>
                 <p style="font-size:14px; color:var(--slate); opacity:0.78; line-height:1.55; margin-bottom:12px; font-weight:500;">Make every section guide visitors toward the next step.</p>
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:7px; margin-bottom:20px;">
-                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--slate); opacity:0.58; line-height:1.5;">
+                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--slate); opacity:0.70; line-height:1.6;">
                         <span style="width:3px; height:3px; border-radius:50%; background:var(--clay); margin-top:7px; flex-shrink:0;"></span>
                         Restructured layout and sharper messaging
                     </li>
-                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--slate); opacity:0.58; line-height:1.5;">
+                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--slate); opacity:0.70; line-height:1.6;">
                         <span style="width:3px; height:3px; border-radius:50%; background:var(--clay); margin-top:7px; flex-shrink:0;"></span>
                         CTAs built around how your customers decide
                     </li>
@@ -782,11 +775,11 @@
                 <h3 style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(28px,3vw,38px); font-weight:400; font-style:italic; color:var(--ink); margin-bottom:12px; letter-spacing:-0.022em; line-height:1.05;">Build the Site</h3>
                 <p style="font-size:14px; color:var(--slate); opacity:0.78; line-height:1.55; margin-bottom:12px; font-weight:500;">A polished, responsive site shaped around your actual offer.</p>
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:7px; margin-bottom:20px;">
-                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--slate); opacity:0.58; line-height:1.5;">
+                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--slate); opacity:0.70; line-height:1.6;">
                         <span style="width:3px; height:3px; border-radius:50%; background:var(--clay); margin-top:7px; flex-shrink:0;"></span>
                         Design and development in one place, no handoffs
                     </li>
-                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--slate); opacity:0.58; line-height:1.5;">
+                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--slate); opacity:0.70; line-height:1.6;">
                         <span style="width:3px; height:3px; border-radius:50%; background:var(--clay); margin-top:7px; flex-shrink:0;"></span>
                         Structured around how your customers make decisions
                     </li>
@@ -800,11 +793,11 @@
                 <h3 style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(28px,3vw,38px); font-weight:400; font-style:italic; color:var(--ink); margin-bottom:12px; letter-spacing:-0.022em; line-height:1.05;">Optimize After Launch</h3>
                 <p style="font-size:14px; color:var(--slate); opacity:0.78; line-height:1.55; margin-bottom:12px; font-weight:500;">Refine copy, layout, speed, and calls to action over time.</p>
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:7px; margin-bottom:20px;">
-                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--slate); opacity:0.58; line-height:1.5;">
+                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--slate); opacity:0.70; line-height:1.6;">
                         <span style="width:3px; height:3px; border-radius:50%; background:var(--clay); margin-top:7px; flex-shrink:0;"></span>
                         No full rebuilds required
                     </li>
-                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--slate); opacity:0.58; line-height:1.5;">
+                    <li style="display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--slate); opacity:0.70; line-height:1.6;">
                         <span style="width:3px; height:3px; border-radius:50%; background:var(--clay); margin-top:7px; flex-shrink:0;"></span>
                         Steady improvement on what's underperforming
                     </li>
@@ -957,19 +950,23 @@
                 <div style="background:#131a2e; padding:24px 28px;">
                     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:16px;">
                         <div>
-                            <div style="font-size:14px; font-weight:600; color:rgba(246,243,236,0.88); font-family:'DM Sans',sans-serif; margin-bottom:2px;">Slowmornings</div>
-                            <div style="font-size:11px; color:rgba(246,243,236,0.32); font-family:'DM Sans',sans-serif; letter-spacing:0.06em; text-transform:uppercase;">Lifestyle Brand</div>
+                            <div style="font-size:14px; font-weight:600; color:rgba(246,243,236,0.88); font-family:'DM Sans',sans-serif; margin-bottom:4px;">Slowmornings</div>
+                            <p style="font-size:14px; color:rgba(246,243,236,0.68); font-family:'DM Sans',sans-serif; line-height:1.6; max-width:420px;">Built to support clearer product presentation, stronger visual trust, and a smoother path from first impression to action.</p>
                         </div>
                         <div style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(201,164,92,0.70); background:rgba(201,164,92,0.10); border:1px solid rgba(201,164,92,0.20); border-radius:100px; padding:5px 12px; font-family:'DM Sans',sans-serif; white-space:nowrap; flex-shrink:0;">Featured Build</div>
                     </div>
-                    <div style="display:flex; flex-direction:column; gap:8px; border-top:1px solid rgba(246,243,236,0.07); padding-top:16px;">
-                        <div style="display:flex; gap:10px; font-size:12px; font-family:'DM Sans',sans-serif; line-height:1.5;">
-                            <span style="color:rgba(201,164,92,0.70); font-weight:600; min-width:62px; flex-shrink:0;">Challenge</span>
-                            <span style="color:rgba(246,243,236,0.48);">Warm, editorial brand with a strong aesthetic — but no clear path for visitors to act or understand the offer</span>
+                    <div style="display:flex; gap:24px; border-top:1px solid rgba(246,243,236,0.07); padding-top:16px; flex-wrap:wrap;">
+                        <div style="font-size:12px; font-family:'DM Sans',sans-serif;">
+                            <span style="color:rgba(201,164,92,0.60); font-weight:600; text-transform:uppercase; letter-spacing:0.10em; font-size:10px; display:block; margin-bottom:3px;">Focus</span>
+                            <span style="color:rgba(246,243,236,0.55);">Ecommerce homepage, product presentation, mobile flow</span>
                         </div>
-                        <div style="display:flex; gap:10px; font-size:12px; font-family:'DM Sans',sans-serif; line-height:1.5;">
-                            <span style="color:rgba(201,164,92,0.70); font-weight:600; min-width:62px; flex-shrink:0;">Result</span>
-                            <span style="color:rgba(246,243,236,0.48);">Custom type system, intentional scroll pacing, and a conversion flow that turned browsers into buyers without sacrificing the brand feel</span>
+                        <div style="font-size:12px; font-family:'DM Sans',sans-serif;">
+                            <span style="color:rgba(201,164,92,0.60); font-weight:600; text-transform:uppercase; letter-spacing:0.10em; font-size:10px; display:block; margin-bottom:3px;">Role</span>
+                            <span style="color:rgba(246,243,236,0.55);">Design direction, layout, conversion path</span>
+                        </div>
+                        <div style="font-size:12px; font-family:'DM Sans',sans-serif;">
+                            <span style="color:rgba(201,164,92,0.60); font-weight:600; text-transform:uppercase; letter-spacing:0.10em; font-size:10px; display:block; margin-bottom:3px;">Built for</span>
+                            <span style="color:rgba(246,243,236,0.55);">Clarity, trust, and action</span>
                         </div>
                     </div>
                 </div>
@@ -1054,7 +1051,7 @@
                     Fast when the<br>path is <em style="font-style:italic; color:var(--clay);">clear.</em>
                 </h2>
                 <p style="font-size:17px; font-weight:400; color:var(--slate); opacity:0.75; line-height:1.65; margin-bottom:24px; max-width:420px;">
-                    When your goals, assets, and feedback loop are ready, we can move quickly. The free audit helps us find the fastest path — improve what exists, redesign the flow, or build something new.
+                    Asset-ready projects move faster. When your goals, brand assets, and feedback loop are in place, we can move quickly and keep scope tight. The audit helps us figure out exactly what's needed before we start.
                 </p>
                 <a href="#book"
                    style="background:var(--ink); color:var(--ivory); height:48px; padding:0 28px; border-radius:100px; font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; display:inline-flex; align-items:center; text-decoration:none;"
@@ -1110,18 +1107,17 @@
 <section id="about" style="background:var(--ivory); padding:100px 0; border-top:1px solid var(--border);">
     <div style="max-width:1180px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:center;" class="md:grid-cols-2 grid-cols-1">
 
-        <!-- Visual: branded card -->
+        <!-- Visual: photo -->
         <div class="reveal">
-            <div class="about-card">
-                <div class="about-initials">WB</div>
-                <div class="about-sub">Waterbury Brothers &nbsp;·&nbsp; Est. 2024</div>
+            <div style="border-radius:24px; overflow:hidden; aspect-ratio:1; background:#0b1224;">
+                <img src="nick.jpeg" alt="Nick Waterbury" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
             </div>
         </div>
 
         <!-- Text -->
         <div class="reveal reveal-d2">
             <h2 style="font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(42px, 5.5vw, 64px); color:var(--ink); margin-bottom:24px; line-height:0.97; letter-spacing:-0.028em;">
-                Two people who care<br>about the <em style="font-style:italic; color:var(--clay);">work.</em>
+                <span style="display:block; white-space:nowrap;">Ten years of ecommerce.</span><em style="font-style:italic; color:var(--clay);">Direct execution.</em>
             </h2>
             <span class="gold-line" style="margin-bottom:28px;"></span>
             <p style="font-size:16px; font-weight:400; color:var(--slate); opacity:0.78; line-height:1.72; margin-bottom:20px;">
@@ -1269,15 +1265,16 @@
 <!-- ───────────────────────────────────────────
      DARK CTA
 ──────────────────────────────────────────── -->
-<section class="dark-cta" style="padding:120px 0 128px;">
+<section class="dark-cta" style="padding:140px 0 148px;">
     <canvas id="dustCanvas" aria-hidden="true"></canvas>
-    <div class="inner" style="max-width:780px; margin:0 auto; padding:0 32px; text-align:center;">
+    <div class="inner" style="max-width:1000px; margin:0 auto; padding:0 48px; text-align:center;">
 
-        <h2 class="reveal" style="font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(56px, 8vw, 104px); color:var(--ivory); margin-bottom:20px; letter-spacing:-0.03em; line-height:0.93;">
-            Your first audit is free.<br><em style="font-style:italic; color:var(--gold); opacity:0.9;">No catch.</em>
+        <h2 class="reveal" style="font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; margin-bottom:28px; letter-spacing:-0.03em; line-height:1.0;">
+            <span style="display:block; font-size:clamp(40px, 5vw, 68px); color:var(--ivory);">Your first audit is free.</span>
+            <em style="display:block; font-size:clamp(60px, 10vw, 132px); color:var(--gold); opacity:0.9; line-height:0.9; margin-top:8px;">No catch.</em>
         </h2>
 
-        <p class="reveal reveal-d1" style="font-size:19px; font-weight:400; color:rgba(246,243,236,0.65); max-width:480px; margin:0 auto 48px; line-height:1.68;">
+        <p class="reveal reveal-d1" style="font-size:19px; font-weight:400; color:rgba(246,243,236,0.65); max-width:480px; margin:0 auto 52px; line-height:1.68;">
             We'll look at your site, your goals, and the clearest next move. No pressure.
         </p>
 
@@ -1623,28 +1620,6 @@
     });
 })();
 
-// ── Count-up for "190" in trust strip
-(function() {
-    var el = document.getElementById('projectCount');
-    if (!el) return;
-    var target = 100;
-    var duration = 1400;
-    var start = null;
-    function ease(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
-    function run(ts) {
-        if (!start) start = ts;
-        var p = Math.min((ts - start) / duration, 1);
-        el.textContent = Math.floor(ease(p) * target);
-        if (p < 1) requestAnimationFrame(run);
-        else el.textContent = target;
-    }
-    var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-            if (e.isIntersecting) { requestAnimationFrame(run); obs.unobserve(e.target); }
-        });
-    }, { threshold: 0.8 });
-    obs.observe(el);
-})();
 
 // ── @keyframes pulse for footer dot (inline fallback)
 (function() {
